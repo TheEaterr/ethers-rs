@@ -180,8 +180,12 @@ pub enum Opcode {
     GAS,
     /// Opcode 0x5B - Mark a valid destination for jumps
     JUMPDEST,
-
-    // 0x5C - 0x5E are invalid
+    /// Opcode 0x5C - Load word from transient storage
+    TLOAD,
+    /// Opcode 0x5D - Save word to transient storage
+    TSTORE,
+    /// Opcode Ox5E - Copy memory to memory
+    MCOPY,
 
     // 0x5F range - pushes.
     /// Opcode 0x5F - Place the constant value 0 on stack
