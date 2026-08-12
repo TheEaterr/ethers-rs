@@ -84,8 +84,10 @@ pub enum Opcode {
     SHR,
     /// Opcode 0x1D - Arithmetic (signed) right shift operation
     SAR,
-
-    // 0x1E - 0x1F are invalid
+    /// Opcode 0x1E - Count leading zeros
+    CLZ,
+    
+    // Ox1F is invalid
 
     // 0x20 range - crypto.
     /// Opcode 0x20 - Compute Keccak-256 hash
@@ -422,7 +424,7 @@ mod tests {
         /* 0x1b */ Some("SHL"),
         /* 0x1c */ Some("SHR"),
         /* 0x1d */ Some("SAR"),
-        /* 0x1e */ None,
+        /* 0x1e */ Some("CLZ"),
         /* 0x1f */ None,
         /* 0x20 */ Some("SHA3"),
         /* 0x21 */ None,
@@ -484,9 +486,9 @@ mod tests {
         /* 0x59 */ Some("MSIZE"),
         /* 0x5a */ Some("GAS"),
         /* 0x5b */ Some("JUMPDEST"),
-        /* 0x5c */ None,
-        /* 0x5d */ None,
-        /* 0x5e */ None,
+        /* 0x5c */ Some("TLOAD"),
+        /* 0x5d */ Some("TSTORE"),
+        /* 0x5e */ Some("MCOPY"),
         /* 0x5f */ Some("PUSH0"),
         /* 0x60 */ Some("PUSH1"),
         /* 0x61 */ Some("PUSH2"),
