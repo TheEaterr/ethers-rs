@@ -152,8 +152,12 @@ pub enum Opcode {
     SELFBALANCE,
     /// Opcode 0x48 - Get the base fee
     BASEFEE,
+    /// Opcode 0x49 - Get versioned hashes
+    BLOBHASH,
+    /// Opcode 0x4A - Get blob base fee of current block
+    BLOBBASEFEE,
 
-    // 0x49 - 0x4F are invalid
+    // 0x4B - 0x4F are invalid
 
     // 0x50 range - 'storage' and execution.
     /// Opcode 0x50 - Remove item from stack
@@ -467,8 +471,8 @@ mod tests {
         /* 0x46 */ Some("CHAINID"),
         /* 0x47 */ Some("SELFBALANCE"),
         /* 0x48 */ Some("BASEFEE"),
-        /* 0x49 */ None,
-        /* 0x4a */ None,
+        /* 0x49 */ Some("BLOBHASH"),
+        /* 0x4a */ Some("BLOBBASEFEE"),
         /* 0x4b */ None,
         /* 0x4c */ None,
         /* 0x4d */ None,
